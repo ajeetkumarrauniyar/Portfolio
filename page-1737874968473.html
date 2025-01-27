@@ -1,0 +1,1276 @@
+
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta name="description" content="{{project.meta.ogDescription}}">
+      <meta name="theme-color" content="#ffffff">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="robots" content="{{project.meta.robotsMeta}}">
+      
+       <title>{{project.seoTitle}}</title>
+      <!-- SEO Description -->
+      <meta name="description" content="{{project.seoDescription}}">
+      <!-- Performance optimization: Preload critical resources -->
+      <link rel="preload" href="https://cdn.tailwindcss.com" as="script">
+      <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" as="style">
+      
+      <!-- {headerScripts} -->
+
+      <!-- Core CSS -->
+      <script src="https://cdn.tailwindcss.com"></script>
+      <script>
+        tailwind.config = {
+          theme: {
+            extend: {
+             colors: {
+                primary: {
+                  50: '#f8f8f8',
+                  100: '#e8e8e8',
+                  200: '#d3d3d3',
+                  300: '#a3a3a3',
+                  400: '#737373',
+                  500: '#525252',
+                  600: '#404040',
+                  700: '#262626',
+                  800: '#171717',
+                  900: '#0a0a0a',
+                  950: '#030303',
+                },
+                secondary: {
+                  50: '#f8f8f8',
+                  100: '#e8e8e8',
+                  200: '#d3d3d3',
+                  300: '#a3a3a3',
+                  400: '#737373',
+                  500: '#525252',
+                  600: '#404040',
+                  700: '#262626',
+                  800: '#171717',
+                  900: '#0a0a0a',
+                  950: '#030303',
+                },
+                accent: {
+                  50: '#f8f8f8',
+                  100: '#e8e8e8',
+                  200: '#d3d3d3',
+                  300: '#a3a3a3',
+                  400: '#737373',
+                  500: '#525252',
+                  600: '#404040',
+                  700: '#262626',
+                  800: '#171717',
+                  900: '#0a0a0a',
+                  950: '#030303',
+                },
+              },
+              fontFamily: {
+                sans: ['Inter', 'system-ui', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'sans-serif'],
+                heading: ['Montserrat', 'Inter', 'system-ui', 'sans-serif'],
+              },
+              spacing: {
+                '18': '4.5rem',
+                '22': '5.5rem',
+                '30': '7.5rem',
+              },
+              maxWidth: {
+                '8xl': '88rem',
+                '9xl': '96rem',
+              },
+              animation: {
+                'fade-in': 'fadeIn 0.5s ease-in',
+                'fade-out': 'fadeOut 0.5s ease-out',
+                'slide-up': 'slideUp 0.5s ease-out',
+                'slide-down': 'slideDown 0.5s ease-out',
+                'slide-left': 'slideLeft 0.5s ease-out',
+                'slide-right': 'slideRight 0.5s ease-out',
+                'scale-in': 'scaleIn 0.5s ease-out',
+                'scale-out': 'scaleOut 0.5s ease-out',
+                'spin-slow': 'spin 3s linear infinite',
+                'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                'bounce-slow': 'bounce 3s infinite',
+                'float': 'float 3s ease-in-out infinite',
+              },
+              keyframes: {
+                fadeIn: {
+                  '0%': { opacity: '0' },
+                  '100%': { opacity: '1' },
+                },
+                fadeOut: {
+                  '0%': { opacity: '1' },
+                  '100%': { opacity: '0' },
+                },
+                slideUp: {
+                  '0%': { transform: 'translateY(20px)', opacity: '0' },
+                  '100%': { transform: 'translateY(0)', opacity: '1' },
+                },
+                slideDown: {
+                  '0%': { transform: 'translateY(-20px)', opacity: '0' },
+                  '100%': { transform: 'translateY(0)', opacity: '1' },
+                },
+                slideLeft: {
+                  '0%': { transform: 'translateX(20px)', opacity: '0' },
+                  '100%': { transform: 'translateX(0)', opacity: '1' },
+                },
+                slideRight: {
+                  '0%': { transform: 'translateX(-20px)', opacity: '0' },
+                  '100%': { transform: 'translateX(0)', opacity: '1' },
+                },
+                scaleIn: {
+                  '0%': { transform: 'scale(0.9)', opacity: '0' },
+                  '100%': { transform: 'scale(1)', opacity: '1' },
+                },
+                scaleOut: {
+                  '0%': { transform: 'scale(1.1)', opacity: '0' },
+                  '100%': { transform: 'scale(1)', opacity: '1' },
+                },
+                float: {
+                  '0%, 100%': { transform: 'translateY(0)' },
+                  '50%': { transform: 'translateY(-10px)' },
+                },
+              },
+              aspectRatio: {
+                'portrait': '3/4',
+                'landscape': '4/3',
+                'ultrawide': '21/9',
+              },
+            },
+          },
+          variants: {
+            extend: {
+              opacity: ['disabled'],
+              cursor: ['disabled'],
+              backgroundColor: ['active', 'disabled'],
+              textColor: ['active', 'disabled'],
+            },
+          },
+        }
+      </script>
+
+      <!-- Utilities and Components -->
+      <script defer src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.13.3/cdn.min.js"></script>
+      <script defer src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.45.1/apexcharts.min.js"></script>
+      
+      <!-- Optimized Font Loading -->
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+      
+      <!-- Icons -->
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" 
+            integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+      <!-- Dynamic Meta Tags -->
+      <meta name="description" content="{{project.meta.ogDescription}}">
+      <meta name="keywords" content="{{project.meta.keywords}}">
+      <meta name="robots" content="{{project.meta.robotsMeta}}">
+      <meta name="google-site-verification" content="{{project.meta.googleVerification}}">
+      <meta name="baidu-verification" content="{{project.meta.baiduVerification}}">
+      <meta name="yandex-verification" content="{{project.meta.yandexVerification}}">
+      <meta name="bing-verification" content="{{project.meta.bingVerification}}">
+      <meta property="og:title" content="{{project.meta.ogTitle}}">
+      <meta property="og:description" content="{{project.meta.ogDescription}}">
+      <meta property="og:image" content="{{project.meta.ogImage}}">
+      <meta property="og:type" content="website">
+      <meta property="og:locale" content="en_US">
+      <meta property="og:site_name" content="{{project.name}}">
+      <meta name="twitter:card" content="summary_large_image">
+      <meta name="twitter:title" content="{{project.meta.ogTitle}}">
+      <meta name="twitter:description" content="{{project.meta.ogDescription}}">
+      <meta name="twitter:image" content="{{project.meta.ogImage}}">
+
+      <!-- Base Styles -->
+      <style>
+      * {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+/* Webkit browsers like Chrome, Safari, newer Edge */
+*::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  height: 0;
+}
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+          width: 0px;
+        }
+        
+        ::-webkit-scrollbar-track {
+          background: #f1f1f1;
+          border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+          background: #888;
+          border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+          background: #666;
+        }
+
+        /* Remove tap highlight on mobile */
+        * {
+          -webkit-tap-highlight-color: transparent;
+        }
+
+        /* Improve text rendering */
+        body {
+          text-rendering: optimizeLegibility;
+          -webkit-font-smoothing: antialiased;
+          -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Focus outline styles */
+        :focus-visible {
+          outline: 2px solid currentColor;
+          outline-offset: 2px;
+        }
+
+        /* Print styles */
+        @media print {
+          .no-print {
+            display: none !important;
+          }
+          
+          a[href]:after {
+            content: " (" attr(href) ")";
+          }
+        }
+      </style>
+
+      <!-- Enhanced Image Handler -->
+      <script>
+        document.addEventListener('DOMContentLoaded', () => {
+          const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+              if (entry.isIntersecting) {
+                const img = entry.target;
+                if (img.dataset.src) {
+                  const tempImage = new Image();
+                  tempImage.onload = () => {
+                    img.src = img.dataset.src;
+                    img.classList.remove('opacity-0');
+                    img.classList.add('opacity-100');
+                  };
+                  tempImage.src = img.dataset.src;
+                  img.removeAttribute('data-src');
+                  observer.unobserve(img);
+                }
+              }
+            });
+          }, {
+            rootMargin: '50px 0px',
+            threshold: 0.01
+          });
+
+          const loadImage = (img) => {
+            if ('loading' in HTMLImageElement.prototype) {
+              img.loading = 'lazy';
+            }
+            
+            img.classList.add('transition-opacity', 'duration-300', 'opacity-0');
+            
+            img.onerror = () => {
+              const width = img.getAttribute('width') || img.clientWidth || 300;
+              const height = img.getAttribute('height') || img.clientHeight || 200;
+              img.src = `https://placehold.co/${width}x${height}/DEDEDE/555555?text=Image+Unavailable`;
+              img.alt = 'Image unavailable';
+              img.classList.remove('opacity-0');
+              img.classList.add('opacity-100', 'error-image');
+            };
+
+            if (img.dataset.src) {
+              imageObserver.observe(img);
+            } else {
+              img.classList.remove('opacity-0');
+              img.classList.add('opacity-100');
+            }
+          };
+
+          document.querySelectorAll('img[data-src], img:not([data-src])').forEach(loadImage);
+
+          // Watch for dynamically added images
+          new MutationObserver((mutations) => {
+            mutations.forEach(mutation => {
+              mutation.addedNodes.forEach(node => {
+                if (node.nodeType === 1) {
+                  if (node.tagName === 'IMG') {
+                    loadImage(node);
+                  }
+                  node.querySelectorAll('img').forEach(loadImage);
+                }
+              });
+            });
+          }).observe(document.body, {
+            childList: true,
+            subtree: true
+          });
+        });
+
+        // Performance monitoring
+        if ('performance' in window && 'PerformanceObserver' in window) {
+          // Create performance observer
+          const observer = new PerformanceObserver((list) => {
+            const entries = list.getEntries();
+            entries.forEach((entry) => {
+              if (entry.entryType === 'largest-contentful-paint') {
+                // console.log(`LCP: ${entry.startTime}ms`);
+              }
+              if (entry.entryType === 'first-input') {
+                // console.log(`FID: ${entry.processingStart - entry.startTime}ms`);
+              }
+              if (entry.entryType === 'layout-shift') {
+                // console.log(`CLS: ${entry.value}`);
+              }
+            });
+          });
+
+          // Observe performance metrics
+          observer.observe({ entryTypes: ['largest-contentful-paint', 'first-input', 'layout-shift'] });
+
+          // Log basic performance metrics
+          window.addEventListener('load', () => {
+            const timing = performance.getEntriesByType('navigation')[0];
+            console.log({
+              'DNS Lookup': timing.domainLookupEnd - timing.domainLookupStart,
+              'TCP Connection': timing.connectEnd - timing.connectStart,
+              'DOM Content Loaded': timing.domContentLoadedEventEnd - timing.navigationStart,
+              'Page Load': timing.loadEventEnd - timing.navigationStart
+            });
+          });
+        }
+
+        // Handle offline/online status
+        window.addEventListener('online', () => {
+          document.body.classList.remove('offline');
+          console.log('Connection restored');
+        });
+        
+        window.addEventListener('offline', () => {
+          document.body.classList.add('offline');
+          console.log('Connection lost');
+        });
+      </script>
+   </head>
+   <body class="antialiased text-gray-800 min-h-screen flex flex-col">
+      <!-- Skip to main content link for accessibility -->
+      <a href="#main-content" 
+         class="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-50 focus:p-4 focus:bg-white focus:text-black">
+         Skip to main content
+      </a>
+
+      <!-- Header -->
+      <header class="relative z-50 bg-white dark:bg-gray-900">
+        <!-- Header content goes here -->
+      </header>
+
+      <!-- Main content area -->
+      <main id="main-content" class="flex-1 relative ">
+        <!-- Content will be injected here -->
+      </main>
+
+      <!-- {bodyScripts} -->
+
+   </body>
+</html><element id="07516461-aff3-4232-8f6a-79fab640240c" data-section-id="07516461-aff3-4232-8f6a-79fab640240c">
+
+<htmlCode>
+<div id="root">
+    <nav id="navbar" class="fixed w-full z-50 bg-[#2E4053] text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <div class="text-xl font-bold">Portfolio</div>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4">
+                        <a href="#hero" class="hover:bg-[#FFC107] hover:text-[#2E4053] px-3 py-2 rounded-md text-sm font-medium transition-all">Home</a>
+                        <a href="#about" class="hover:bg-[#FFC107] hover:text-[#2E4053] px-3 py-2 rounded-md text-sm font-medium transition-all">About</a>
+                        <a href="#projects" class="hover:bg-[#FFC107] hover:text-[#2E4053] px-3 py-2 rounded-md text-sm font-medium transition-all">Projects</a>
+                        <a href="#services" class="hover:bg-[#FFC107] hover:text-[#2E4053] px-3 py-2 rounded-md text-sm font-medium transition-all">Services</a>
+                        <a href="#blog" class="hover:bg-[#FFC107] hover:text-[#2E4053] px-3 py-2 rounded-md text-sm font-medium transition-all">Blog</a>
+                        <a href="#contact" class="hover:bg-[#FFC107] hover:text-[#2E4053] px-3 py-2 rounded-md text-sm font-medium transition-all">Contact</a>
+                    </div>
+                </div>
+                <div class="md:hidden">
+                    <button id="mobile-menu-button" class="inline-flex items-center justify-center p-2 rounded-md hover:bg-[#FFC107] hover:text-[#2E4053] transition-all">
+                        <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
+                            <path class="inline-flex" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-[#2E4053]">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#hero" class="block hover:bg-[#FFC107] hover:text-[#2E4053] px-3 py-2 rounded-md text-base font-medium transition-all">Home</a>
+                <a href="#about" class="block hover:bg-[#FFC107] hover:text-[#2E4053] px-3 py-2 rounded-md text-base font-medium transition-all">About</a>
+                <a href="#projects" class="block hover:bg-[#FFC107] hover:text-[#2E4053] px-3 py-2 rounded-md text-base font-medium transition-all">Projects</a>
+                <a href="#services" class="block hover:bg-[#FFC107] hover:text-[#2E4053] px-3 py-2 rounded-md text-base font-medium transition-all">Services</a>
+                <a href="#blog" class="block hover:bg-[#FFC107] hover:text-[#2E4053] px-3 py-2 rounded-md text-base font-medium transition-all">Blog</a>
+                <a href="#contact" class="block hover:bg-[#FFC107] hover:text-[#2E4053] px-3 py-2 rounded-md text-base font-medium transition-all">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navbar = document.getElementById('navbar');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 0) {
+                navbar.classList.add('shadow-lg');
+            } else {
+                navbar.classList.remove('shadow-lg');
+            }
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - navbar.offsetHeight,
+                        behavior: 'smooth'
+                    });
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+    </script>
+</div>
+</htmlCode></element><element id="3c150ee6-c76b-43c2-9919-361abdb1159f" data-section-id="3c150ee6-c76b-43c2-9919-361abdb1159f">
+
+<htmlCode>
+<div id="root">
+    <section id="hero" class="bg-[#2E4053] min-h-[70vh] flex items-center relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-r from-[#2E4053]/90 to-[#2E4053]/80 z-10"></div>
+        
+        <div class="hidden lg:block absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-[#2E4053] opacity-50"></div>
+            <div class="animate-pulse absolute inset-0">
+                <div class="h-full w-full bg-gradient-to-r from-transparent via-[#FFC107]/10 to-transparent skew-y-12 animate-gradient"></div>
+            </div>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-20">
+            <div class="flex flex-col items-start max-w-2xl animate__animated animate__fadeIn">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6">
+                    Hi, I'm <span class="text-[#FFC107]">John Doe</span>
+                    <span class="block mt-2">Full Stack Developer</span>
+                </h1>
+                
+                <p class="text-lg md:text-xl text-gray-300 mb-8 animate__animated animate__fadeIn animate__delay-1s">
+                    Crafting elegant solutions through code. Specialized in building modern web applications that make a difference.
+                </p>
+
+                <div class="flex gap-4 animate__animated animate__fadeIn animate__delay-2s">
+                    <a href="#projects" class="px-8 py-3 bg-[#FFC107] text-[#2E4053] rounded-full font-semibold hover:bg-[#FFC107]/90 transition-all transform hover:scale-105">
+                        View My Work
+                    </a>
+                    <a href="#contact" class="px-8 py-3 border-2 border-[#FFC107] text-[#FFC107] rounded-full font-semibold hover:bg-[#FFC107]/10 transition-all transform hover:scale-105">
+                        Contact Me
+                    </a>
+                </div>
+
+                <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+                    <a href="#about" class="text-white hover:text-[#FFC107] transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <div class="absolute bottom-0 right-0 w-full h-16 bg-gradient-to-t from-[#2E4053] to-transparent"></div>
+    </section>
+
+    <style>
+        @keyframes gradient {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+        .animate-gradient {
+            animation: gradient 3s infinite;
+        }
+    </style>
+</div>
+</htmlCode></element><element id="b957c73d-fb56-4998-a95d-f77758fbc146" data-section-id="b957c73d-fb56-4998-a95d-f77758fbc146">
+
+<htmlCode>
+<div id="root">
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 animate__animated animate__fadeIn">
+                <h2 class="text-3xl md:text-4xl font-bold text-[#2E4053] mb-4">About Me</h2>
+                <div class="w-20 h-1 bg-[#FFC107] mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-6 animate__animated animate__fadeInLeft">
+                    <h3 class="text-2xl font-semibold text-[#2E4053]">
+                        Transforming Ideas into Digital Reality
+                    </h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        With over 5 years of experience in web development, I specialize in creating elegant, efficient, and user-friendly solutions. My passion lies in building applications that make a real difference in people's lives.
+                    </p>
+                    <div class="grid grid-cols-2 gap-6 mt-8">
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-[#2E4053]">Frontend</h4>
+                            <p class="text-gray-600">React, Vue, Angular</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-[#2E4053]">Backend</h4>
+                            <p class="text-gray-600">Node.js, Python, PHP</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-[#2E4053]">Database</h4>
+                            <p class="text-gray-600">MongoDB, MySQL</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-lg">
+                            <h4 class="font-semibold text-[#2E4053]">DevOps</h4>
+                            <p class="text-gray-600">Docker, AWS, Git</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative animate__animated animate__fadeInRight">
+                    <div class="bg-[#2E4053] rounded-lg p-8">
+                        <div class="space-y-6">
+                            <div class="flex items-center space-x-4">
+                                <div class="bg-[#FFC107] p-3 rounded-full">
+                                    <svg class="w-6 h-6 text-[#2E4053]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                                    </svg>
+                                </div>
+                                <div class="text-white">
+                                    <h4 class="font-semibold">50+ Projects</h4>
+                                    <p class="text-gray-300 text-sm">Completed Successfully</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="bg-[#FFC107] p-3 rounded-full">
+                                    <svg class="w-6 h-6 text-[#2E4053]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                                    </svg>
+                                </div>
+                                <div class="text-white">
+                                    <h4 class="font-semibold">30+ Clients</h4>
+                                    <p class="text-gray-300 text-sm">Worldwide</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center space-x-4">
+                                <div class="bg-[#FFC107] p-3 rounded-full">
+                                    <svg class="w-6 h-6 text-[#2E4053]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                                    </svg>
+                                </div>
+                                <div class="text-white">
+                                    <h4 class="font-semibold">5+ Years</h4>
+                                    <p class="text-gray-300 text-sm">Experience</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+</htmlCode></element><element id="5494d7c9-0b75-44c6-9d66-96a2dfb89763" data-section-id="5494d7c9-0b75-44c6-9d66-96a2dfb89763">
+
+<htmlCode>
+<div id="root">
+    <section id="projects" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 animate__animated animate__fadeIn">
+                <h2 class="text-3xl md:text-4xl font-bold text-[#2E4053] mb-4">Featured Projects</h2>
+                <div class="w-20 h-1 bg-[#FFC107] mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project Card 1 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden group animate__animated animate__fadeInUp">
+                    <div class="relative h-48 bg-[#2E4053] flex items-center justify-center">
+                        <div class="text-4xl text-white">
+                            <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <div class="absolute inset-0 bg-[#2E4053] opacity-0 group-hover:opacity-90 transition-opacity flex items-center justify-center">
+                            <div class="text-white text-center p-4">
+                                <p class="font-semibold">View Project</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-[#2E4053] mb-2">E-Commerce Platform</h3>
+                        <p class="text-gray-600 mb-4">A full-stack e-commerce solution with React and Node.js</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-[#FFC107]/20 text-[#2E4053] rounded-full text-sm">React</span>
+                            <span class="px-3 py-1 bg-[#FFC107]/20 text-[#2E4053] rounded-full text-sm">Node.js</span>
+                            <span class="px-3 py-1 bg-[#FFC107]/20 text-[#2E4053] rounded-full text-sm">MongoDB</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden group animate__animated animate__fadeInUp animate__delay-1s">
+                    <div class="relative h-48 bg-[#2E4053] flex items-center justify-center">
+                        <div class="text-4xl text-white">
+                            <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <div class="absolute inset-0 bg-[#2E4053] opacity-0 group-hover:opacity-90 transition-opacity flex items-center justify-center">
+                            <div class="text-white text-center p-4">
+                                <p class="font-semibold">View Project</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-[#2E4053] mb-2">Task Management App</h3>
+                        <p class="text-gray-600 mb-4">A collaborative task management application</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-[#FFC107]/20 text-[#2E4053] rounded-full text-sm">Vue.js</span>
+                            <span class="px-3 py-1 bg-[#FFC107]/20 text-[#2E4053] rounded-full text-sm">Firebase</span>
+                            <span class="px-3 py-1 bg-[#FFC107]/20 text-[#2E4053] rounded-full text-sm">Tailwind</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project Card 3 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden group animate__animated animate__fadeInUp animate__delay-2s">
+                    <div class="relative h-48 bg-[#2E4053] flex items-center justify-center">
+                        <div class="text-4xl text-white">
+                            <svg class="w-16 h-16" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <div class="absolute inset-0 bg-[#2E4053] opacity-0 group-hover:opacity-90 transition-opacity flex items-center justify-center">
+                            <div class="text-white text-center p-4">
+                                <p class="font-semibold">View Project</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-[#2E4053] mb-2">Analytics Dashboard</h3>
+                        <p class="text-gray-600 mb-4">Real-time analytics visualization platform</p>
+                        <div class="flex flex-wrap gap-2">
+                            <span class="px-3 py-1 bg-[#FFC107]/20 text-[#2E4053] rounded-full text-sm">Angular</span>
+                            <span class="px-3 py-1 bg-[#FFC107]/20 text-[#2E4053] rounded-full text-sm">D3.js</span>
+                            <span class="px-3 py-1 bg-[#FFC107]/20 text-[#2E4053] rounded-full text-sm">AWS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="#" class="inline-block px-8 py-3 bg-[#2E4053] text-white rounded-full font-semibold hover:bg-[#2E4053]/90 transition-all transform hover:scale-105 animate__animated animate__fadeIn animate__delay-3s">
+                    View All Projects
+                </a>
+            </div>
+        </div>
+    </section>
+</div>
+</htmlCode></element><element id="bdf83bb9-24ab-4a7d-978a-184dbf920e00" data-section-id="bdf83bb9-24ab-4a7d-978a-184dbf920e00">
+
+<htmlCode>
+<div id="root">
+    <section id="services" class="py-20 bg-[#2E4053] text-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 animate__animated animate__fadeIn">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">Services</h2>
+                <div class="w-20 h-1 bg-[#FFC107] mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-white/5 backdrop-blur-sm rounded-lg p-8 hover:transform hover:scale-105 transition-all duration-300 animate__animated animate__fadeInUp">
+                    <div class="bg-[#FFC107] rounded-full w-16 h-16 flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-[#2E4053]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Web Development</h3>
+                    <p class="text-gray-300 mb-4">Custom web applications built with modern technologies and best practices.</p>
+                    <ul class="space-y-2 text-gray-300">
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 mr-2 text-[#FFC107]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Responsive Design
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 mr-2 text-[#FFC107]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            SEO Optimization
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 mr-2 text-[#FFC107]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Performance Tuning
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-white/5 backdrop-blur-sm rounded-lg p-8 hover:transform hover:scale-105 transition-all duration-300 animate__animated animate__fadeInUp animate__delay-1s">
+                    <div class="bg-[#FFC107] rounded-full w-16 h-16 flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-[#2E4053]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">Mobile Development</h3>
+                    <p class="text-gray-300 mb-4">Cross-platform mobile applications that deliver exceptional user experience.</p>
+                    <ul class="space-y-2 text-gray-300">
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 mr-2 text-[#FFC107]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Native Performance
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 mr-2 text-[#FFC107]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Cross-Platform
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 mr-2 text-[#FFC107]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            App Store Deploy
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-white/5 backdrop-blur-sm rounded-lg p-8 hover:transform hover:scale-105 transition-all duration-300 animate__animated animate__fadeInUp animate__delay-2s">
+                    <div class="bg-[#FFC107] rounded-full w-16 h-16 flex items-center justify-center mb-6">
+                        <svg class="w-8 h-8 text-[#2E4053]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-4">UI/UX Design</h3>
+                    <p class="text-gray-300 mb-4">User-centered design solutions that enhance user engagement and satisfaction.</p>
+                    <ul class="space-y-2 text-gray-300">
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 mr-2 text-[#FFC107]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            User Research
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 mr-2 text-[#FFC107]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Wireframing
+                        </li>
+                        <li class="flex items-center">
+                            <svg class="w-4 h-4 mr-2 text-[#FFC107]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                            </svg>
+                            Prototyping
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+</htmlCode></element><element id="fc88e44b-bb7d-42c4-aa5f-5c41d5f49587" data-section-id="fc88e44b-bb7d-42c4-aa5f-5c41d5f49587">
+
+<htmlCode>
+<div id="root">
+    <section id="blog" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 animate__animated animate__fadeIn">
+                <h2 class="text-3xl md:text-4xl font-bold text-[#2E4053] mb-4">Latest Blog Posts</h2>
+                <div class="w-20 h-1 bg-[#FFC107] mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Blog Post 1 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden animate__animated animate__fadeInUp">
+                    <div class="h-48 bg-[#2E4053] flex items-center justify-center">
+                        <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-[#FFC107]/20 text-[#2E4053] text-sm px-3 py-1 rounded-full">Development</span>
+                            <span class="ml-auto text-gray-500 text-sm">June 1, 2023</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-[#2E4053] mb-2">Modern Web Development Practices</h3>
+                        <p class="text-gray-600 mb-4">Exploring the latest trends and best practices in modern web development.</p>
+                        <a href="#" class="text-[#FFC107] hover:text-[#2E4053] font-semibold transition-colors">Read More →</a>
+                    </div>
+                </div>
+
+                <!-- Blog Post 2 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden animate__animated animate__fadeInUp animate__delay-1s">
+                    <div class="h-48 bg-[#2E4053] flex items-center justify-center">
+                        <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-[#FFC107]/20 text-[#2E4053] text-sm px-3 py-1 rounded-full">UI/UX</span>
+                            <span class="ml-auto text-gray-500 text-sm">May 28, 2023</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-[#2E4053] mb-2">Designing for User Experience</h3>
+                        <p class="text-gray-600 mb-4">Key principles for creating intuitive and user-friendly interfaces.</p>
+                        <a href="#" class="text-[#FFC107] hover:text-[#2E4053] font-semibold transition-colors">Read More →</a>
+                    </div>
+                </div>
+
+                <!-- Blog Post 3 -->
+                <div class="bg-white rounded-lg shadow-lg overflow-hidden animate__animated animate__fadeInUp animate__delay-2s">
+                    <div class="h-48 bg-[#2E4053] flex items-center justify-center">
+                        <svg class="w-16 h-16 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex items-center mb-4">
+                            <span class="bg-[#FFC107]/20 text-[#2E4053] text-sm px-3 py-1 rounded-full">Mobile</span>
+                            <span class="ml-auto text-gray-500 text-sm">May 20, 2023</span>
+                        </div>
+                        <h3 class="text-xl font-semibold text-[#2E4053] mb-2">Mobile-First Development</h3>
+                        <p class="text-gray-600 mb-4">Strategies for building responsive and mobile-friendly applications.</p>
+                        <a href="#" class="text-[#FFC107] hover:text-[#2E4053] font-semibold transition-colors">Read More →</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12 animate__animated animate__fadeIn animate__delay-3s">
+                <a href="#" class="inline-block px-8 py-3 bg-[#2E4053] text-white rounded-full font-semibold hover:bg-[#2E4053]/90 transition-all transform hover:scale-105">
+                    View All Posts
+                </a>
+            </div>
+        </div>
+    </section>
+</div>
+</htmlCode></element><element id="84c658b0-87d2-46f6-9d45-5caba44d3968" data-section-id="84c658b0-87d2-46f6-9d45-5caba44d3968">
+
+<htmlCode>
+<div id="root">
+    <section id="testimonials" class="py-20 bg-[#2E4053]">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 animate__animated animate__fadeIn">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Client Testimonials</h2>
+                <div class="w-20 h-1 bg-[#FFC107] mx-auto"></div>
+            </div>
+
+            <div class="testimonial-slider relative">
+                <div class="overflow-hidden">
+                    <div class="testimonials-container flex transition-transform duration-500">
+                        <!-- Testimonial 1 -->
+                        <div class="w-full lg:w-1/3 flex-shrink-0 px-4">
+                            <div class="bg-white/10 backdrop-blur-sm p-8 rounded-lg animate__animated animate__fadeIn">
+                                <div class="flex items-center mb-6">
+                                    <div class="w-12 h-12 bg-[#FFC107] rounded-full flex items-center justify-center">
+                                        <span class="text-[#2E4053] font-bold text-xl">A</span>
+                                    </div>
+                                    <div class="ml-4">
+                                        <h4 class="text-white font-semibold">Alex Thompson</h4>
+                                        <p class="text-gray-300">CEO, Tech Innovators</p>
+                                    </div>
+                                </div>
+                                <p class="text-gray-300 mb-6">"Outstanding work on our web application. The attention to detail and technical expertise exceeded our expectations."</p>
+                                <div class="flex text-[#FFC107]">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                    </svg>
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                    </svg>
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                    </svg>
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                    </svg>
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 2 -->
+                        <div class="w-full lg:w-1/3 flex-shrink-0 px-4">
+                            <div class="bg-white/10 backdrop-blur-sm p-8 rounded-lg animate__animated animate__fadeIn animate__delay-1s">
+                                <div class="flex items-center mb-6">
+                                    <div class="w-12 h-12 bg-[#FFC107] rounded-full flex items-center justify-center">
+                                        <span class="text-[#2E4053] font-bold text-xl">S</span>
+                                    </div>
+                                    <div class="ml-4">
+                                        <h4 class="text-white font-semibold">Sarah Chen</h4>
+                                        <p class="text-gray-300">Product Manager, Digital Solutions</p>
+                                    </div>
+                                </div>
+                                <p class="text-gray-300 mb-6">"The mobile app development process was smooth and professional. Great communication throughout the project."</p>
+                                <div class="flex text-[#FFC107]">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                    </svg>
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                    </svg>
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                    </svg>
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                    </svg>
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial 3 -->
+                        <div class="w-full lg:w-1/3 flex-shrink-0 px-4">
+                            <div class="bg-white/10 backdrop-blur-sm p-8 rounded-lg animate__animated animate__fadeIn animate__delay-2s">
+                                <div class="flex items-center mb-6">
+                                    <div class="w-12 h-12 bg-[#FFC107] rounded-full flex items-center justify-center">
+                                        <span class="text-[#2E4053] font-bold text-xl">M</span>
+                                    </div>
+                                    <div class="ml-4">
+                                        <h4 class="text-white font-semibold">Michael Rodriguez</h4>
+                                        <p class="text-gray-300">Startup Founder</p>
+                                    </div>
+                                </div>
+                                <p class="text-gray-300 mb-6">"Transformed our concept into a beautiful, functional website. The results have been amazing for our business."</p>
+                                <div class="flex text-[#FFC107]">
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                    </svg>
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                    </svg>
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                    </svg>
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                    </svg>
+                                    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                                        <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path>
+                                    </svg>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="absolute left-4 top-1/2 transform -translate-y-1/2 bg-[#FFC107] p-2 rounded-full hover:bg-[#FFC107]/80 transition-all" id="prevBtn">
+                    <svg class="w-6 h-6 text-[#2E4053]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+                    </svg>
+                </button>
+                <button class="absolute right-4 top-1/2 transform -translate-y-1/2 bg-[#FFC107] p-2 rounded-full hover:bg-[#FFC107]/80 transition-all" id="nextBtn">
+                    <svg class="w-6 h-6 text-[#2E4053]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const container = document.querySelector('.testimonials-container');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+        let currentIndex = 0;
+        const testimonials = document.querySelectorAll('.testimonials-container > div');
+        const totalSlides = testimonials.length;
+
+        function updateSlider() {
+            const offset = currentIndex * -100;
+            container.style.transform = `translateX(${offset}%)`;
+        }
+
+        prevBtn.addEventListener('click', () => {
+            currentIndex = Math.max(currentIndex - 1, 0);
+            updateSlider();
+        });
+
+        nextBtn.addEventListener('click', () => {
+            currentIndex = Math.min(currentIndex + 1, totalSlides - 1);
+            updateSlider();
+        });
+
+        // Optional: Auto-slide
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            updateSlider();
+        }, 5000);
+    </script>
+</div>
+</htmlCode></element><element id="dd26b538-a879-4c7f-93ec-5f220576d539" data-section-id="dd26b538-a879-4c7f-93ec-5f220576d539">
+
+<htmlCode>
+<div id="root">
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16 animate__animated animate__fadeIn">
+                <h2 class="text-3xl md:text-4xl font-bold text-[#2E4053] mb-4">Get In Touch</h2>
+                <div class="w-20 h-1 bg-[#FFC107] mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="space-y-8 animate__animated animate__fadeInLeft">
+                    <div class="flex items-center space-x-4">
+                        <div class="bg-[#2E4053] rounded-full p-4">
+                            <svg class="w-6 h-6 text-[#FFC107]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-[#2E4053]">Phone</h3>
+                            <p class="text-gray-600">+1 (555) 123-4567</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center space-x-4">
+                        <div class="bg-[#2E4053] rounded-full p-4">
+                            <svg class="w-6 h-6 text-[#FFC107]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-[#2E4053]">Email</h3>
+                            <p class="text-gray-600">contact@example.com</p>
+                        </div>
+                    </div>
+
+                    <div class="flex items-center space-x-4">
+                        <div class="bg-[#2E4053] rounded-full p-4">
+                            <svg class="w-6 h-6 text-[#FFC107]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <h3 class="font-semibold text-[#2E4053]">Location</h3>
+                            <p class="text-gray-600">San Francisco, CA</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-lg p-8 shadow-lg animate__animated animate__fadeInRight">
+                    <form id="contactForm" class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-[#2E4053]">Name</label>
+                            <input type="text" id="name" name="name" required class="mt-1 block w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FFC107]">
+                        </div>
+
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-[#2E4053]">Email</label>
+                            <input type="email" id="email" name="email" required class="mt-1 block w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FFC107]">
+                        </div>
+
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-[#2E4053]">Message</label>
+                            <textarea id="message" name="message" rows="4" required class="mt-1 block w-full px-4 py-3 bg-gray-50 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-[#FFC107]"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full bg-[#2E4053] text-white py-3 px-6 rounded-md hover:bg-[#2E4053]/90 transition-all transform hover:scale-105">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Success Modal -->
+        <div id="successModal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50">
+            <div class="bg-white rounded-lg p-8 max-w-md mx-4">
+                <div class="text-center">
+                    <svg class="w-16 h-16 text-green-500 mx-auto mb-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                    </svg>
+                    <h3 class="text-xl font-semibold text-[#2E4053] mb-2">Message Sent Successfully!</h3>
+                    <p class="text-gray-600 mb-6">Thank you for reaching out. I'll get back to you soon.</p>
+                    <button id="closeModal" class="bg-[#2E4053] text-white py-2 px-6 rounded-md hover:bg-[#2E4053]/90 transition-all">
+                        Close
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        const contactForm = document.getElementById('contactForm');
+        const successModal = document.getElementById('successModal');
+        const closeModal = document.getElementById('closeModal');
+
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Form validation
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            if (!name || !email || !message) {
+                alert('Please fill in all fields');
+                return;
+            }
+
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                alert('Please enter a valid email address');
+                return;
+            }
+
+            // Show success modal
+            successModal.classList.remove('hidden');
+            successModal.classList.add('flex');
+            
+            // Reset form
+            contactForm.reset();
+        });
+
+        closeModal.addEventListener('click', function() {
+            successModal.classList.add('hidden');
+            successModal.classList.remove('flex');
+        });
+
+        // Close modal when clicking outside
+        successModal.addEventListener('click', function(e) {
+            if (e.target === successModal) {
+                successModal.classList.add('hidden');
+                successModal.classList.remove('flex');
+            }
+        });
+    </script>
+</div>
+</htmlCode></element><element id="326093bf-e9c7-4991-a4d1-a65a0071cb53" data-section-id="326093bf-e9c7-4991-a4d1-a65a0071cb53">
+
+<htmlCode>
+<div id="root">
+    <footer id="footer" class="bg-[#2E4053] text-white">
+        <div class="container mx-auto px-6 py-12">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="space-y-4">
+                    <h3 class="text-xl font-bold mb-4">John Doe</h3>
+                    <p class="text-gray-300">Full Stack Developer specializing in creating elegant, efficient, and user-friendly solutions.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-[#FFC107] hover:text-white transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-[#FFC107] hover:text-white transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            </svg>
+                        </a>
+                        <a href="#" class="text-[#FFC107] hover:text-white transition-colors">
+                            <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z"/>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#hero" class="text-gray-300 hover:text-[#FFC107] transition-colors">Home</a></li>
+                        <li><a href="#about" class="text-gray-300 hover:text-[#FFC107] transition-colors">About</a></li>
+                        <li><a href="#projects" class="text-gray-300 hover:text-[#FFC107] transition-colors">Projects</a></li>
+                        <li><a href="#services" class="text-gray-300 hover:text-[#FFC107] transition-colors">Services</a></li>
+                        <li><a href="#blog" class="text-gray-300 hover:text-[#FFC107] transition-colors">Blog</a></li>
+                        <li><a href="#contact" class="text-gray-300 hover:text-[#FFC107] transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Services</h3>
+                    <ul class="space-y-2">
+                        <li class="text-gray-300">Web Development</li>
+                        <li class="text-gray-300">Mobile Development</li>
+                        <li class="text-gray-300">UI/UX Design</li>
+                        <li class="text-gray-300">API Integration</li>
+                        <li class="text-gray-300">Cloud Solutions</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Newsletter</h3>
+                    <p class="text-gray-300 mb-4">Subscribe to receive updates and news.</p>
+                    <form class="space-y-4">
+                        <input type="email" placeholder="Enter your email" class="w-full px-4 py-2 rounded-md bg-white/10 border border-white/20 focus:outline-none focus:border-[#FFC107] text-white placeholder-gray-400">
+                        <button type="submit" class="w-full bg-[#FFC107] text-[#2E4053] py-2 rounded-md hover:bg-[#FFC107]/90 transition-all font-semibold">
+                            Subscribe
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <div class="border-t border-white/10 mt-12 pt-8 text-center">
+                <p class="text-gray-300">&copy; 2023 John Doe. All rights reserved.</p>
+            </div>
+        </div>
+
+        <!-- Scroll to Top Button -->
+        <button id="scrollToTop" class="fixed bottom-8 right-8 bg-[#FFC107] text-[#2E4053] p-3 rounded-full shadow-lg hover:bg-[#FFC107]/90 transition-all hidden">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 10l7-7m0 0l7 7m-7-7v18"></path>
+            </svg>
+        </button>
+    </footer>
+
+    <script>
+        // Scroll to Top functionality
+        const scrollToTopBtn = document.getElementById('scrollToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 300) {
+                scrollToTopBtn.classList.remove('hidden');
+            } else {
+                scrollToTopBtn.classList.add('hidden');
+            }
+        });
+
+        scrollToTopBtn.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+    </script>
+</div>
+</htmlCode></element>
+            <div id="page_complete">
+            <script>
+                console.log('Page complete');
+            </script>
+            </body>
+            </html>
+          
