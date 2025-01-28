@@ -1,4 +1,6 @@
 import { useState } from 'react';
+import { Footer } from '../shared/Footer';
+import { SocialLinks } from './SocialLinks';
 
 export function Contact() {
   return (
@@ -45,9 +47,7 @@ export function Contact() {
             <ContactForm />
           </div>
         </div>
-
-        <SocialLinks />
-        <Footer />
+        {/* <SocialLinks /> */}
       </div>
     </section>
   );
@@ -129,7 +129,9 @@ function ContactForm() {
             onChange={handleChange}
             className="w-full rounded-lg border border-gray-600 bg-gray-700 px-4 py-3 focus:border-blue-500 focus:outline-none"
           >
-            <option value="" disabled>Select a project type</option>
+            <option value="" disabled>
+              Select a project type
+            </option>
             <option>Full-Stack Application</option>
             <option>Frontend Development</option>
             <option>Backend Architecture</option>
@@ -183,39 +185,6 @@ function FormField({ label, type, name, value, onChange, placeholder }) {
         className="w-full rounded-lg border border-gray-600 bg-gray-700 px-4 py-3 focus:border-blue-500 focus:outline-none"
         placeholder={placeholder}
       />
-    </div>
-  );
-}
-
-function SocialLinks() {
-  const socialLinks = [
-    { icon: 'github', label: 'GitHub' },
-    { icon: 'linkedin', label: 'LinkedIn' },
-    { icon: 'envelope', label: 'Email', prefix: 'fas' },
-    { icon: 'twitter', label: 'Twitter' },
-  ];
-
-  return (
-    <div className="mt-20 grid grid-cols-2 gap-8 text-center md:grid-cols-4">
-      {socialLinks.map(({ icon, label, prefix = 'fab' }) => (
-        <div key={label}>
-          <i
-            className={`${prefix} fa-${icon} mb-4 cursor-pointer text-4xl text-gray-400 transition-colors hover:text-white`}
-          ></i>
-          <p className="text-sm text-gray-400">{label}</p>
-        </div>
-      ))}
-    </div>
-  );
-}
-
-function Footer() {
-  return (
-    <div className="mt-20 text-center text-gray-400">
-      <p>
-        © {new Date().getFullYear()} Full-Stack Portfolio. Built with passion
-        and countless cups of coffee.
-      </p>
     </div>
   );
 }

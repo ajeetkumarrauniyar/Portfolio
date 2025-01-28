@@ -1,23 +1,26 @@
-import React from 'react'
+import React from 'react';
+import { useLocation } from 'react-router-dom';
+import Navbar from '../components/shared/Navbar';
+import { Footer } from '../components/shared/Footer';
 
-const Layout = ({ children }) => {
+const Layout = ({ children, useCustomLayout = false }) => {
+  const location = useLocation();
+
+  // If we're on the JS Projects page or using a custom layout,
+  // don't wrap with the default layout
+  if (useCustomLayout || location.pathname === '/js-projects') {
+    return children;
+  }
+
   return (
-    <div className="antialiased text-gray-800 min-h-screen flex flex-col">
-      {/* Skip to main content link for accessibility */}
-      <a href="#main-content" 
-         className="sr-only focus:not-sr-only focus:absolute focus:top-0 focus:left-0 focus:z-50 focus:p-4 focus:bg-white focus:text-black">
-         Skip to main content
-      </a>
-
-      <header className="relative z-50 bg-white dark:bg-gray-900">
-        {/* Header content */}
-      </header>
-
-      <main id="main-content" className="flex-1 relative">
+    <div className="flex min-h-screen flex-col">
+      <Navbar />
+      <main id="main-content" className="relative flex-1">
         {children}
       </main>
+      <Footer />
     </div>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;

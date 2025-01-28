@@ -1,31 +1,42 @@
 import React from 'react';
-import Layout from './layout/Layout';
-import HeroSection from './components/sections/HeroSection';
-import Hero from './components/sections/Hero';
-import { FeaturedProjects } from './components/sections/FeaturedProjects';
-import { TechStack } from './components/sections/TechStack';
-import { VanillaChallenge } from './components/sections/VanillaChallenge';
-import { MiniProjects } from './components/sections/MiniProjects';
-import { Blog } from './components/sections/Blog';
-import { Contact } from './components/sections/Contact';
-import ProjectCategories from './components/sections/ProjectCategories';
-import { Testimonials } from './components/sections/Testimonials';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import Home from './pages/Home';
+import JSMinorProjects from './pages/JSMinorProjects';
+import NotFound from './pages/NotFound';
+import ComingSoon from './pages/ComingSoon';
+
+const comingSoonRoutes = [
+  '/about',
+  '/blog',
+  '/contact',
+  '/privacy',
+  '/terms',
+  '/services'
+];
+
+export const router = createBrowserRouter([
+  {
+    path: '/',
+    element: <Home />,
+  },
+  {
+    path: '/js-projects',
+    element: <JSMinorProjects />,
+  },
+  // Coming Soon routes
+  ...comingSoonRoutes.map(path => ({
+    path,
+    element: <ComingSoon />
+  })),
+  // 404 route - must be last
+  {
+    path: '*',
+    element: <NotFound />,
+  },
+]);
 
 const App = () => {
-  return (
-    <Layout>
-      <HeroSection />
-      <Hero />
-      <ProjectCategories />
-      <FeaturedProjects />
-      <TechStack />
-      <VanillaChallenge />
-      <MiniProjects />
-      <Blog />
-      <Testimonials />
-      <Contact />
-    </Layout>
-  );
+  return <RouterProvider router={router} />;
 };
 
 export default App;

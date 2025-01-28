@@ -79,9 +79,9 @@ export function FeaturedProjects() {
                 >
                   <div className="flex flex-wrap items-center gap-4">
                     <div
-                      className={`inline-block rounded-full px-4 py-2 text-sm font-medium ${project.category}`}
+                      className={`inline-block rounded-full px-4 py-2 text-sm font-medium ${project.categoryColor}`}
                     >
-                      {project.category}
+                      {project.category} 
                     </div>
                   </div>
 
