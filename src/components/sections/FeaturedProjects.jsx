@@ -1,104 +1,187 @@
-import { Image } from "../shared/Image";
+import { Image } from '../shared/Image';
 
 export function FeaturedProjects() {
   const projects = [
     {
-      title: "Real-Time Collaboration App",
+      title: 'Document Collaboration Platform',
       description:
-        "Built a seamless real-time collaboration platform using Socket.io for instant updates and MERN stack for robust functionality.",
-      tech: ["Socket.io", "MongoDB", "Express", "React", "Node.js"],
-      image: "https://placehold.co/800x450?text=Real-Time+Collab+App",
-      badge: "MERN Stack",
-      demoUrl: "#",
-      codeUrl: "#",
+        'A real-time document editing platform with collaborative features, authentication, and version control.',
+      tech: ['Socket.io', 'Clerk Auth', 'MongoDB', 'Express'],
+      image: 'https://placehold.co/800x450?text=Real-Time+Collab+Demo',
+      category: 'Real-Time Collaboration',
+      categoryColor: 'bg-blue-900/30 text-blue-400',
+      features: [
+        'Real-time cursor tracking and presence indicators',
+        'Conflict resolution with operational transformation',
+        'Automatic saving and version history',
+      ],
+      demoUrl: '#',
+      codeUrl: '#',
     },
     {
-      title: "Custom WordPress Ecosystem",
+      title: 'Task Management PWA',
       description:
-        "Developed a comprehensive WordPress ecosystem with custom plugins for automated inventory management without page reloads.",
-      tech: ["PHP", "MySQL", "WordPress", "REST API"],
-      image: "https://placehold.co/800x450?text=WordPress+Ecosystem",
-      badge: "WordPress",
-      demoUrl: "#",
-      codeUrl: "#",
+        'A fully offline-capable task management system with sync capabilities and performance optimization.',
+      tech: ['Service Workers', 'IndexedDB', 'Workbox', 'Cache API'],
+      image: 'https://placehold.co/800x450?text=PWA+Demo',
+      category: 'Progressive Web App',
+      categoryColor: 'bg-purple-900/30 text-purple-400',
+      lighthouse: {
+        performance: 98,
+        accessibility: 100,
+        bestPractices: 100,
+        pwa: 100,
+      },
+      demoUrl: '#',
+      codeUrl: '#',
     },
     {
-      title: "Progressive Web App",
+      title: 'Soundwave Music Platform',
       description:
-        "Created a high-performance PWA with Next.js and Appwrite, achieving a 95% Lighthouse score through optimization techniques.",
-      tech: ["Next.js", "Appwrite", "PWA"],
-      image: "https://placehold.co/800x450?text=Progressive+Web+App",
-      badge: "Next.js",
-      demoUrl: "#",
-      codeUrl: "#",
-    },
-    {
-      title: "Data-Driven Tool",
-      description:
-        "Engineered a robust data processing tool using DataStax Astra DB with automated CSV parsing and scheduled Cron jobs.",
-      tech: ["DataStax", "Node.js", "Cron"],
-      image: "https://placehold.co/800x450?text=Data+Driven+Tool",
-      badge: "DataStax",
-      demoUrl: "#",
-      codeUrl: "#",
+        'A responsive music streaming application with advanced audio handling and playlist management.',
+      tech: ['Web Audio API', 'Tailwind CSS', 'Material UI', 'Redux'],
+      image: 'https://placehold.co/800x450?text=Music+App+Demo',
+      category: 'Music Streaming',
+      categoryColor: 'bg-green-900/30 text-green-400',
+      features: [
+        'Advanced audio visualization',
+        'Custom audio controls and effects',
+        'Playlist management with drag-and-drop',
+      ],
+      demoUrl: '#',
+      codeUrl: '#',
     },
   ];
 
   return (
-    <section id="featured-projects" className="min-h-screen bg-gray-50 dark:bg-gray-900 py-20">
-      <div className="container mx-auto px-4">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-12 text-center">
+    <section
+      id="FeaturedProjects"
+      className="min-h-screen bg-gray-900 px-4 py-20 text-white"
+    >
+      <div className="container mx-auto max-w-7xl">
+        <div className="mb-16 text-center">
+          <h2 className="mb-4 text-center text-4xl font-bold">
             Featured Projects
           </h2>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {projects.map((project) => (
-              <ProjectCard key={project.title} {...project} />
-            ))}
-          </div>
+          <p className="text-xl text-gray-400">
+            Showcasing complex implementations and innovative solutions across
+            different tech domains
+          </p>
+        </div>
+
+        <div className="space-y-24">
+          {projects.map((project, index) => (
+            <div key={project.title} className="project-card">
+              <div className={`grid items-center gap-12 lg:grid-cols-2`}>
+                {/* Content Section */}
+                <div
+                  className={`space-y-6 ${index % 2 !== 0 ? 'lg:order-2' : ''}`}
+                >
+                  <div className="flex flex-wrap items-center gap-4">
+                    <div
+                      className={`inline-block rounded-full px-4 py-2 text-sm font-medium ${project.category}`}
+                    >
+                      {project.category}
+                    </div>
+                  </div>
+
+                  <h3 className="text-3xl font-bold leading-tight">
+                    {project.title}
+                  </h3>
+                  <p className="text-lg text-gray-400">{project.description}</p>
+
+                  <div className="flex flex-wrap gap-3">
+                    {project.tech.map((item) => (
+                      <span
+                        key={item}
+                        className="tech-badge rounded-full bg-gray-800 px-3 py-1 text-sm hover:bg-gray-700"
+                      >
+                        {item}
+                      </span>
+                    ))}
+                  </div>
+
+                  {project.features && (
+                    <div className="space-y-3 pl-2">
+                      {project.features.map((feature) => (
+                        <div
+                          key={feature}
+                          className="feature-item flex items-center gap-3"
+                        >
+                          <i className="fas fa-check w-5 text-green-400"></i>
+                          <span className="text-gray-300">{feature}</span>
+                        </div>
+                      ))}
+                    </div>
+                  )}
+
+                  {project.lighthouse && (
+                    <div className="lighthouse-card rounded-lg border border-gray-700 bg-gray-800/50 p-4">
+                      <div className="mb-4 flex items-center gap-4">
+                        <i className="fas fa-tachometer-alt text-green-400"></i>
+                        <span className="font-semibold">Lighthouse Score</span>
+                      </div>
+                      <div className="grid grid-cols-4 gap-4">
+                        <LighthouseScore
+                          label="Performance"
+                          score={project.lighthouse.performance}
+                        />
+                        <LighthouseScore
+                          label="Accessibility"
+                          score={project.lighthouse.accessibility}
+                        />
+                        <LighthouseScore
+                          label="Best Practices"
+                          score={project.lighthouse.bestPractices}
+                        />
+                        <LighthouseScore
+                          label="PWA"
+                          score={project.lighthouse.pwa}
+                        />
+                      </div>
+                    </div>
+                  )}
+
+                  <div className="flex flex-wrap gap-4 pt-2">
+                    <a href={project.demoUrl} className="project-btn demo-btn">
+                      <i className="fas fa-play text-sm"></i>
+                      <span>Live Demo</span>
+                    </a>
+                    <a href={project.codeUrl} className="project-btn code-btn">
+                      <i className="fab fa-github text-sm"></i>
+                      <span>View Code</span>
+                    </a>
+                  </div>
+                </div>
+
+                {/* Image Section */}
+                <div
+                  className={`project-image-container ${
+                    index % 2 !== 0 ? 'lg:order-1' : ''
+                  }`}
+                >
+                  <div className="rounded-xl border border-gray-700/50 bg-gray-800/50 p-6">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full rounded-lg shadow-2xl transition-transform duration-300 hover:scale-[1.02]"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
   );
 }
 
-function ProjectCard({ title, description, tech, image, badge, demoUrl, codeUrl }) {
+function LighthouseScore({ label, score }) {
   return (
-    <div className="bg-white dark:bg-gray-800 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-      <div className="relative">
-        <Image
-          src={image}
-          alt={title}
-          className="w-full"
-          loading="lazy"
-        />
-        {badge && (
-          <div className="absolute top-4 right-4 bg-blue-600 text-white px-3 py-1 rounded-full text-sm">
-            {badge}
-          </div>
-        )}
-      </div>
-      
-      <div className="p-6">
-        <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
-          {title}
-        </h3>
-        <p className="text-gray-600 dark:text-gray-300 mb-4">
-          {description}
-        </p>
-        
-        <div className="flex flex-wrap gap-2 mb-4">
-          {tech.map((item) => (
-            <span
-              key={item}
-              className="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full text-sm"
-            >
-              {item}
-            </span>
-          ))}
-        </div>
-      </div>
+    <div className="lighthouse-score text-center">
+      <div className="text-xl font-bold text-green-400">{score}</div>
+      <div className="mt-1 text-sm text-gray-400">{label}</div>
     </div>
   );
 }

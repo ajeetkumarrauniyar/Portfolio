@@ -1,15 +1,22 @@
 export function VanillaChallenge() {
   return (
-    <section id="vanilla-challenge" className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 dark:from-gray-900 dark:to-gray-800 py-20">
+    <section
+      id="vanilla-challenge"
+      className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-20 dark:from-gray-900 dark:to-gray-800"
+    >
       <div className="container mx-auto px-4">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="text-4xl font-bold text-gray-900 dark:text-white mb-8 text-center">30-Day Vanilla JS/CSS Challenge</h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 text-center mb-16">Why I Built 30 Projects Without Frameworks</p>
+        <div className="mx-auto max-w-5xl">
+          <h2 className="mb-8 text-center text-4xl font-bold text-gray-900 dark:text-white">
+            30-Day Vanilla JS/CSS Challenge
+          </h2>
+          <p className="mb-16 text-center text-xl text-gray-600 dark:text-gray-300">
+            "No Frameworks, No Libraries – Pure Problem-Solving"
+          </p>
 
           {/* Timeline Section */}
           <div className="relative">
             {/* Timeline Line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 h-full w-1 bg-blue-200 dark:bg-blue-900"></div>
+            <div className="absolute left-1/2 h-full w-1 -translate-x-1/2 transform bg-blue-200 dark:bg-blue-900"></div>
 
             {/* Timeline Items */}
             <div className="space-y-12">
@@ -42,10 +49,44 @@ export function VanillaChallenge() {
             </div>
           </div>
 
+          {/* View All Challenges Button */}
+          <div class="mt-12 text-center">
+            <button class="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-8 py-3 transition-colors hover:bg-blue-700">
+              <span>View All 30 Challenges</span>
+              <i class="fas fa-arrow-right"></i>
+            </button>
+          </div>
+
+          {/* Progress Stats */}
+          <div className="mt-16 grid grid-cols-1 md:grid-cols-4 gap-6">
+            <StatCard
+              number="30"
+              label="Days Completed"
+              textColor="text-blue-400"
+            />
+            <StatCard
+              number="1,500+"
+              label="Lines of Vanilla JS"
+              textColor="text-blue-400"
+            />
+            <StatCard
+              number="15"
+              label="CSS Animations"
+              textColor="text-blue-400"
+            />
+            <StatCard
+              number="10"
+              label="Canvas Projects"
+              textColor="text-blue-400"
+            />
+          </div>
+
           {/* Key Learnings */}
-          <div className="mt-20 bg-white dark:bg-gray-800 rounded-xl p-8 shadow-lg">
-            <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-6">Key Learnings</h3>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="mt-20 rounded-xl bg-white p-8 shadow-lg dark:bg-gray-800">
+            <h3 className="mb-6 text-2xl font-bold text-gray-900 dark:text-white">
+              Key Learnings
+            </h3>
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
               <LearningCard
                 icon={<BoltIcon />}
                 title="Core Understanding"
@@ -78,10 +119,17 @@ function TimelineItem({ title, description, image, imageAlt, position }) {
       {/* Left side content */}
       {position === 'left' ? (
         <div className="w-5/12 pr-8">
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg">
-            <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">{title}</h3>
+          <div className="rounded-xl bg-white p-6 shadow-lg dark:bg-gray-800">
+            <h3 className="mb-2 text-lg font-bold text-gray-900 dark:text-white">
+              {title}
+            </h3>
             <p className="text-gray-600 dark:text-gray-300">{description}</p>
-            <img src={image} alt={imageAlt} className="mt-4 rounded-lg w-full" loading="lazy"/>
+            <img
+              src={image}
+              alt={imageAlt}
+              className="mt-4 w-full rounded-lg"
+              loading="lazy"
+            />
           </div>
         </div>
       ) : (
@@ -89,15 +137,22 @@ function TimelineItem({ title, description, image, imageAlt, position }) {
       )}
 
       {/* Timeline dot */}
-      <div className="absolute left-1/2 transform -translate-x-1/2 w-8 h-8 bg-blue-500 rounded-full border-4 border-white dark:border-gray-900"></div>
+      <div className="absolute left-1/2 h-8 w-8 -translate-x-1/2 transform rounded-full border-4 border-white bg-blue-500 dark:border-gray-900"></div>
 
       {/* Right side content */}
       {position === 'right' ? (
         <div className="w-5/12 pl-8">
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg">
-            <h3 className="text-lg font-bold text-gray-900 dark:text-white mb-2">{title}</h3>
+          <div className="rounded-xl bg-white p-6 shadow-lg dark:bg-gray-800">
+            <h3 className="mb-2 text-lg font-bold text-gray-900 dark:text-white">
+              {title}
+            </h3>
             <p className="text-gray-600 dark:text-gray-300">{description}</p>
-            <img src={image} alt={imageAlt} className="mt-4 rounded-lg w-full" loading="lazy"/>
+            <img
+              src={image}
+              alt={imageAlt}
+              className="mt-4 w-full rounded-lg"
+              loading="lazy"
+            />
           </div>
         </div>
       ) : (
@@ -111,24 +166,28 @@ function LearningCard({ icon, title, description, color }) {
   const colorClasses = {
     blue: {
       bg: 'bg-blue-100 dark:bg-blue-900',
-      text: 'text-blue-600 dark:text-blue-300'
+      text: 'text-blue-600 dark:text-blue-300',
     },
     green: {
       bg: 'bg-green-100 dark:bg-green-900',
-      text: 'text-green-600 dark:text-green-300'
+      text: 'text-green-600 dark:text-green-300',
     },
     purple: {
       bg: 'bg-purple-100 dark:bg-purple-900',
-      text: 'text-purple-600 dark:text-purple-300'
-    }
+      text: 'text-purple-600 dark:text-purple-300',
+    },
   };
 
   return (
     <div className="space-y-4">
-      <div className={`w-12 h-12 ${colorClasses[color].bg} rounded-full flex items-center justify-center`}>
-        <div className={`w-6 h-6 ${colorClasses[color].text}`}>{icon}</div>
+      <div
+        className={`h-12 w-12 ${colorClasses[color].bg} flex items-center justify-center rounded-full`}
+      >
+        <div className={`h-6 w-6 ${colorClasses[color].text}`}>{icon}</div>
       </div>
-      <h4 className="text-lg font-semibold text-gray-900 dark:text-white">{title}</h4>
+      <h4 className="text-lg font-semibold text-gray-900 dark:text-white">
+        {title}
+      </h4>
       <p className="text-gray-600 dark:text-gray-300">{description}</p>
     </div>
   );
@@ -137,24 +196,63 @@ function LearningCard({ icon, title, description, color }) {
 // Icons
 function BoltIcon() {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z"/>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M13 10V3L4 14h7v7l9-11h-7z"
+      />
     </svg>
   );
 }
 
 function CheckCircleIcon() {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+      />
     </svg>
   );
 }
 
 function SpeedIcon() {
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z"/>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="none"
+      viewBox="0 0 24 24"
+      stroke="currentColor"
+    >
+      <path
+        strokeLinecap="round"
+        strokeLinejoin="round"
+        strokeWidth={2}
+        d="M13 10V3L4 14h7v7l9-11h-7z"
+      />
     </svg>
+  );
+}
+
+function StatCard({ number, label, textColor }) {
+  return (
+    <div className="bg-gray-800 rounded-xl p-6 text-center">
+      <div className={`text-4xl font-bold ${textColor} mb-2`}>{number}</div>
+      <div className="text-gray-400">{label}</div>
+    </div>
   );
 }
