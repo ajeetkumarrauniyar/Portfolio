@@ -10,6 +10,7 @@ const Navbar = () => {
   const navigationItems = [
     { name: 'Home', to: '/' },
     { name: 'About', to: '/about' },
+    { name: 'Challenges', to: '/challenges' },
     {
       name: 'Projects',
       to: '#projects',
@@ -20,6 +21,7 @@ const Navbar = () => {
       pageSpecific: {
         '/': '#projects',
         '/js-projects': '#projects',
+        '/challenges': '#challenges',
       },
     },
     {

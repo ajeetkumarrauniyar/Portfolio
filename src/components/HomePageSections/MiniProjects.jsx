@@ -1,5 +1,3 @@
-import { Image } from "../shared/Image";
-
 export function MiniProjects() {
   const categories = [
     {

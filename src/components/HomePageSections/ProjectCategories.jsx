@@ -74,7 +74,7 @@ const ProjectCategories = () => {
   ];
 
   return (
-    <section id="ProjectsShowcase" className="min-h-screen bg-gray-900 text-white py-20 px-4">
+    <section id="projectCategories" className="min-h-screen bg-gray-900 text-white py-20 px-4">
       <div className="container mx-auto max-w-7xl">
         <h2 className="text-4xl font-bold mb-4 text-center font-heading">Project Categories</h2>
         <p className="text-gray-400 text-center mb-16 max-w-2xl mx-auto text-lg">

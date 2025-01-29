@@ -4,7 +4,7 @@ import Home from './pages/Home';
 import JSMinorProjects from './pages/JSMinorProjects';
 import NotFound from './pages/NotFound';
 import ComingSoon from './pages/ComingSoon';
-
+import Challenges from './pages/Challenges';
 const comingSoonRoutes = [
   '/about',
   '/blog',
@@ -22,6 +22,10 @@ export const router = createBrowserRouter([
   {
     path: '/js-projects',
     element: <JSMinorProjects />,
+  },
+  {
+    path: '/challenges',
+    element: <Challenges />,
   },
   // Coming Soon routes
   ...comingSoonRoutes.map(path => ({
