@@ -1,14 +1,13 @@
 import React from 'react';
-import Layout from '../layout/Layout';
-import Hero from '../components/Challenges/Hero';
-import { VanillaChallenge } from '../components/Challenges/VanillaChallenge';
+import Hero from '../components/challenges/Hero';
+import { VanillaChallenge } from '../components/challenges/VanillaChallenge';
 
 const Challenges = () => {
   return (
-    <Layout>
+    <>
       <Hero />;
       <VanillaChallenge />
-    </Layout>
+    </>
   );
 };
 

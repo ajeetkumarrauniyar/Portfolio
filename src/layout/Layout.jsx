@@ -1,23 +1,17 @@
 import React from 'react';
-import { useLocation } from 'react-router-dom';
+import { Outlet } from 'react-router-dom';
 import Navbar from '../components/shared/Navbar';
 import { Footer } from '../components/shared/Footer';
+import Newsletter from '../components/shared/Newsletter';
 
-const Layout = ({ children, useCustomLayout = false }) => {
-  const location = useLocation();
-
-  // If we're on the JS Projects page or using a custom layout,
-  // don't wrap with the default layout
-  if (useCustomLayout || location.pathname === '/js-projects') {
-    return children;
-  }
-
+const Layout = () => {
   return (
     <div className="flex min-h-screen flex-col">
       <Navbar />
       <main id="main-content" className="relative flex-1">
-        {children}
+        <Outlet />
       </main>
+      {/* <Newsletter /> */}
       <Footer />
     </div>
   );

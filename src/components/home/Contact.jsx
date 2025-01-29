@@ -1,6 +1,4 @@
 import { useState } from 'react';
-import { Footer } from '../shared/Footer';
-import { SocialLinks } from './SocialLinks';
 
 export function Contact() {
   return (
@@ -47,7 +45,6 @@ export function Contact() {
             <ContactForm />
           </div>
         </div>
-        {/* <SocialLinks /> */}
       </div>
     </section>
   );

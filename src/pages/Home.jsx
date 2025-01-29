@@ -1,17 +1,16 @@
 import React from 'react';
-import Layout from '../layout/Layout';
-import HeroSection from '../components/HomePageSections/HeroSection';
-import { FeaturedProjects } from '../components/HomePageSections/FeaturedProjects';
-import { TechStack } from '../components/HomePageSections/TechStack';
-import { MiniProjects } from '../components/HomePageSections/MiniProjects';
-import { Blog } from '../components/HomePageSections/Blog';
-import { Contact } from '../components/HomePageSections/Contact';
-import ProjectCategories from '../components/HomePageSections/ProjectCategories';
-import { Testimonials } from '../components/HomePageSections/Testimonials';
+import HeroSection from '../components/home/HeroSection';
+import { FeaturedProjects } from '../components/home/FeaturedProjects';
+import { TechStack } from '../components/home/TechStack';
+import { MiniProjects } from '../components/home/MiniProjects';
+import { Blog } from '../components/home/Blog';
+import { Contact } from '../components/home/Contact';
+import ProjectCategories from '../components/home/ProjectCategories';
+import { Testimonials } from '../components/home/Testimonials';
 
 const Home = () => {
   return (
-    <Layout>
+    <>
       <HeroSection />
       <ProjectCategories />
       <FeaturedProjects />
@@ -20,7 +19,7 @@ const Home = () => {
       <Blog />
       <Testimonials />
       <Contact />
-    </Layout>
+    </>
   );
 };
 
