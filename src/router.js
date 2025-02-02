@@ -1,11 +1,12 @@
 import { createBrowserRouter } from 'react-router-dom';
-import Layout from './layout/Layout';
-import Home from './pages/Home';
-import JSMinorProjects from './pages/JSMinorProjects';
-import Challenges from './pages/Challenges';
-import ComingSoon from './pages/ComingSoon';
-import NotFound from './pages/NotFound';
+import Layout from './layout/Layout.jsx';
+import Home from './pages/Home.jsx';
+import JSMinorProjects from './pages/JSMinorProjects.jsx';
+import Challenges from './pages/Challenges.jsx';
+import ComingSoon from './pages/ComingSoon.jsx';
+import NotFound from './pages/NotFound.jsx';
 
+// Define coming soon routes
 const comingSoonRoutes = [
   '/about',
   '/blog',
@@ -16,7 +17,8 @@ const comingSoonRoutes = [
   '/react-minors',
 ];
 
-export const router = createBrowserRouter([
+// Create route configurations
+const routes = [
   {
     element: <Layout />,
     children: [
@@ -44,4 +46,9 @@ export const router = createBrowserRouter([
       },
     ],
   },
-]);
+];
+
+
+const router = createBrowserRouter(routes);
+
+export default router;

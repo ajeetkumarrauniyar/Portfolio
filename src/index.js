@@ -4,7 +4,7 @@ import './styles/index.css';
 import './styles/index2.css';
 import './styles/TechStack.css';
 import { RouterProvider } from 'react-router-dom';
-import { router } from './router';
+import router from './router.js';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

@@ -1,20 +1,22 @@
-require('dotenv').config();
-const express = require('express');
-const cors = require('cors');
-const { Resend } = require('resend');
-// const Arcjet = require('@arcjet/node');
-const emailValidator = require('email-validator');
+import express from 'express';
+import cors from 'cors';
+import { Resend } from 'resend';
+import arcjet, { shield, detectBot, tokenBucket } from '@arcjet/node';
+import emailValidator from 'email-validator';
+import dotenv from 'dotenv';
+
+dotenv.config();
 
 const app = express();
-const SERVER_PORT = 5000;
-const CLIENT_PORT = 3000;
+const SERVER_PORT = process.env.SERVER_PORT || 5000;
+const CLIENT_URL = process.env.CLIENT_URL || 'http://localhost:3000';
 
 // Improved logging function
 const log = {
   info: (msg) => console.log(`[SERVER] ℹ️ ${msg}`),
   success: (msg) => console.log(`[SERVER] ✅ ${msg}`),
   error: (msg) => console.log(`[SERVER] ❌ ${msg}`),
-  warn: (msg) => console.log(`[SERVER] ⚠️ ${msg}`)
+  warn: (msg) => console.log(`[SERVER] ⚠️ ${msg}`),
 };
 
 // Initialize Resend
@@ -22,18 +24,34 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 log.info('Resend client initialized');
 
 // Initialize Arcjet
-// const aj = new Arcjet.default({
-//   key: process.env.ARCJET_API_KEY,
-//   mode: process.env.ARCJET_ENV === 'production' ? 'live' : 'test',
-// });
-// log.info('Arcjet protection initialized in ' + process.env.ARCJET_ENV + ' mode');
+const aj = arcjet({
+  key: process.env.ARCJET_KEY,
+  characteristics: ['ip.src'], // Track requests by IP
+  rules: [
+    shield({ mode: 'LIVE' }),
+    detectBot({
+      mode: 'LIVE', // Blocks requests. Use "DRY_RUN" to log only
+      allow: ['CATEGORY:SEARCH_ENGINE'], // Google, Bing, etc
+    }),
+    // Create a token bucket rate limit. Other algorithms are supported.
+    tokenBucket({
+      mode: 'LIVE',
+      refillRate: 3, // 3 contact form submissions
+      interval: 60, // per minute
+      capacity: 3, // maximum burst
+    }),
+  ],
+});
+log.info('Arcjet protection initialized');
 
 // Configure CORS for development
-app.use(cors({
-  origin: `http://localhost:${CLIENT_PORT}`,
-  methods: ['POST'],
-  credentials: true
-}));
+app.use(
+  cors({
+    origin: CLIENT_URL,
+    methods: ['POST'],
+    credentials: true,
+  })
+);
 app.use(express.json());
 
 log.info('Middleware configured: CORS, JSON parsing');
@@ -53,79 +71,72 @@ const validateEmail = (req, res, next) => {
 // Form validation middleware
 const validateForm = (req, res, next) => {
   const { name, email, projectType, message } = req.body;
-  
+
   if (!name || !email || !projectType || !message) {
     return res.status(400).json({
       success: false,
       error: 'All fields are required',
     });
   }
-  
+
   if (message.length < 10) {
     return res.status(400).json({
       success: false,
       error: 'Message must be at least 10 characters long',
     });
   }
-  
+
   next();
 };
 
-// Rate limiting middleware (simple version without Arcjet)
-const rateLimiter = new Map();
-const RATE_LIMIT_WINDOW = 60 * 1000; // 1 minute
-const MAX_REQUESTS = 3;
-
+// Replace the protectEmail middleware with Arcjet protection
 const protectEmail = async (req, res, next) => {
-  const ip = req.ip;
-  const now = Date.now();
-  
-  if (!rateLimiter.has(ip)) {
-    rateLimiter.set(ip, { count: 1, firstRequest: now });
-    return next();
-  }
+  try {
+    const decision = await aj.protect(req, { requested: 1 });
 
-  const userLimit = rateLimiter.get(ip);
-  
-  if (now - userLimit.firstRequest > RATE_LIMIT_WINDOW) {
-    // Reset if window has passed
-    rateLimiter.set(ip, { count: 1, firstRequest: now });
-    return next();
-  }
+    if (decision.isDenied()) {
+      if (decision.reason.isRateLimit()) {
+        return res.status(429).json({
+          success: false,
+          error: 'Too many requests. Please try again later.',
+        });
+      } else if (decision.reason.isBot()) {
+        return res.status(403).json({
+          success: false,
+          error: 'Automated submissions are not allowed.',
+        });
+      } else {
+        return res.status(403).json({
+          success: false,
+          error: 'Request denied for security reasons.',
+        });
+      }
+    }
 
-  if (userLimit.count >= MAX_REQUESTS) {
-    return res.status(429).json({
-      success: false,
-      error: 'Too many requests. Please try again later.',
-    });
+    next();
+  } catch (error) {
+    log.error(`Arcjet error: ${error.message}`);
+    next(); // Fail open if Arcjet errors
   }
-
-  userLimit.count++;
-  next();
 };
 
-// Cleanup old rate limit entries every minute
-setInterval(() => {
-  const now = Date.now();
-  for (const [ip, data] of rateLimiter.entries()) {
-    if (now - data.firstRequest > RATE_LIMIT_WINDOW) {
-      rateLimiter.delete(ip);
-    }
-  }
-}, RATE_LIMIT_WINDOW);
+app.post(
+  '/api/send',
+  validateForm,
+  validateEmail,
+  protectEmail,
+  async (req, res) => {
+    log.info(`Received contact form submission from ${req.body.email}`);
 
-app.post('/api/send', validateForm, validateEmail, protectEmail, async (req, res) => {
-  log.info(`Received contact form submission from ${req.body.email}`);
-  
-  try {
-    const { name, email, projectType, message } = req.body;
+    try {
+      const { name, email, projectType, message } = req.body;
 
-    const data = await resend.emails.send({
-      from: 'Ajeet Kumar <onboarding@resend.dev>',
-      to: ['rauniyarajeet5487@gmail.com'],
-      reply_to: email,
-      subject: `New Project Inquiry from ${name}`,
-      html: `
+      const data = await resend.emails.send({
+        from: 'Ajeet Kumar <onboarding@resend.dev>',
+        to: ['rauniyarajeet5487@gmail.com'],
+        reply_to: email,
+        subject: `New Project Inquiry from ${name}`,
+        html: `
         <h2>New Project Inquiry</h2>
         <p><strong>Name:</strong> ${name}</p>
         <p><strong>Email:</strong> ${email}</p>
@@ -133,25 +144,26 @@ app.post('/api/send', validateForm, validateEmail, protectEmail, async (req, res
         <p><strong>Message:</strong></p>
         <p>${message.replace(/\n/g, '<br>')}</p>
       `,
-    });
+      });
 
-    log.success(`Email sent successfully to rauniyarajeet5487@gmail.com`);
-    res.json({ success: true, data });
-  } catch (error) {
-    log.error(`Email sending failed: ${error.message}`);
-    res.status(500).json({
-      success: false,
-      error: error.message || 'Failed to send email',
-    });
+      log.success(`Email sent successfully to rauniyarajeet5487@gmail.com`);
+      res.json({ success: true, data });
+    } catch (error) {
+      log.error(`Email sending failed: ${error.message}`);
+      res.status(500).json({
+        success: false,
+        error: error.message || 'Failed to send email',
+      });
+    }
   }
-});
+);
 
 // Health check endpoint
 app.get('/health', (req, res) => {
-  res.json({ 
+  res.json({
     status: 'healthy',
     timestamp: new Date().toISOString(),
-    environment: process.env.NODE_ENV || 'development'
+    environment: process.env.NODE_ENV || 'development',
   });
 });
 
@@ -164,7 +176,7 @@ app.listen(SERVER_PORT, () => {
     🔌 API Endpoints:
        - POST /api/send
        - GET /health
-    🌐 Accepting requests from: http://localhost:${CLIENT_PORT}
+    🌐 Accepting requests from: ${CLIENT_URL}
   `);
 });
 
