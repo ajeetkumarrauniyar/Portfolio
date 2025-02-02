@@ -13,6 +13,7 @@ const comingSoonRoutes = [
   '/privacy',
   '/terms',
   '/services',
+  '/react-minors',
 ];
 
 export const router = createBrowserRouter([

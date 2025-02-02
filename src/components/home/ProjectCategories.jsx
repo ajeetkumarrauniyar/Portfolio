@@ -55,7 +55,8 @@ const ProjectCategories = () => {
         'Implemented incremental static regeneration'
       ],
       github: '#',
-      demo: '#'
+      demo: '#',
+      category: 'PHP/WordPress'
     },
     {
       id: 3,
@@ -69,9 +70,15 @@ const ProjectCategories = () => {
         'Implemented auto-scaling based on load'
       ],
       github: '#',
-      demo: '#'
+      demo: '#',
+      category: 'DevOps & DB'
     }
   ];
+
+  // Filter projects based on active category
+  const filteredProjects = projects.filter(project => 
+    activeCategory === 'All Projects' ? true : project.category === activeCategory
+  );
 
   return (
     <section id="projectCategories" className="min-h-screen bg-gray-900 text-white py-20 px-4">
@@ -96,7 +103,7 @@ const ProjectCategories = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project) => (
+          {filteredProjects.map((project) => (
             <div key={project.id} className="bg-gray-800 rounded-xl overflow-hidden hover:scale-[1.02] transition-transform duration-300">
               <div className="h-48 bg-gray-700 relative">
                 <img 

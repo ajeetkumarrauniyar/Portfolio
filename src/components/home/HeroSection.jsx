@@ -27,7 +27,7 @@ const HeroSection = () => {
 
             <div className="flex gap-4">
               <a
-                href="#projects"
+                href="#FeaturedProjects"
                 className="rounded-lg bg-blue-600 px-8 py-3 font-medium transition-colors hover:bg-blue-700"
               >
                 View Projects

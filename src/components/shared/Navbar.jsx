@@ -9,14 +9,14 @@ const Navbar = () => {
   // Combined navigation items with global and page-specific sections
   const navigationItems = [
     { name: 'Home', to: '/' },
-    { name: 'About', to: '/about' },
+    // { name: 'About', to: '/about' },
     { name: 'Challenges', to: '/challenges' },
     {
       name: 'Projects',
       to: '#projects',
       subItems: [
         { name: 'JavaScript Minors', to: '/js-projects' },
-        { name: 'React Minors', to: '#react' },
+        { name: 'React Minors', to: '/react-minors' },
       ],
       pageSpecific: {
         '/': '#projects',
@@ -24,14 +24,14 @@ const Navbar = () => {
         '/challenges': '#challenges',
       },
     },
-    {
-      name: 'Featured Projects',
-      to: '#featuredProjects',
-      pageSpecific: {
-        '/': '#featuredProjects',
-        '/js-projects': '#featuredProjects',
-      },
-    },
+    // {
+    // name: 'Featured Projects',
+    //   to: '#featuredProjects',
+    //   pageSpecific: {
+    //     '/': '#featuredProjects',
+    //     '/js-projects': '#featuredProjects',
+    //   },
+    // },
     {
       name: 'Technical Skills',
       to: '#technicalSkills',
@@ -48,8 +48,8 @@ const Navbar = () => {
         '/js-projects': '#projectCategories',
       },
     },
-    { name: 'Blog', to: '#blog' },
-    { name: 'Contact', to: '#contact' },
+    // { name: 'Blog', to: '#blog' },
+    // { name: 'Contact', to: '#contact' },
   ];
 
   const handleNavigation = (item) => {
