@@ -9,7 +9,6 @@ import NotFound from './pages/NotFound.jsx';
 // Define coming soon routes
 const comingSoonRoutes = [
   '/about',
-  '/blog',
   '/contact',
   '/privacy',
   '/terms',
@@ -27,12 +26,16 @@ const routes = [
         element: <Home />,
       },
       {
-        path: '/js-projects',
+        path: '/javascript-playground',
         element: <JSMinorProjects />,
       },
       {
         path: '/challenges',
         element: <Challenges />,
+      },
+      {
+        path: '/coming-soon',
+        element: <ComingSoon />,
       },
       // Coming Soon routes
       ...comingSoonRoutes.map((path) => ({
@@ -47,7 +50,6 @@ const routes = [
     ],
   },
 ];
-
 
 const router = createBrowserRouter(routes);
 

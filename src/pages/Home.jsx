@@ -1,7 +1,7 @@
 import React from 'react';
 import HeroSection from '../components/home/HeroSection';
 import { FeaturedProjects } from '../components/home/FeaturedProjects';
-import { TechStack } from '../components/home/TechStack';
+import { TechStack } from '../components/home/TechStackProficiency';
 import { MiniProjects } from '../components/home/MiniProjects';
 import { Blog } from '../components/home/Blog';
 import { Contact } from '../components/home/Contact';

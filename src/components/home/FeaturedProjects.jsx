@@ -7,7 +7,7 @@ export function FeaturedProjects() {
       description:
         'A real-time document editing platform with collaborative features, authentication, and version control.',
       tech: ['Socket.io', 'Clerk Auth', 'MongoDB', 'Express'],
-      image: 'https://placehold.co/800x450?text=Real-Time+Collab+Demo',
+      image: 'DocumentCollaborationPlatform.webp',
       category: 'Real-Time Collaboration',
       categoryColor: 'bg-blue-900/30 text-blue-400',
       features: [
@@ -15,15 +15,15 @@ export function FeaturedProjects() {
         'Conflict resolution with operational transformation',
         'Automatic saving and version history',
       ],
-      demoUrl: '#',
-      codeUrl: '#',
+      demoUrl: '/coming-soon',
+      codeUrl: '/coming-soon',
     },
     {
       title: 'Task Management PWA',
       description:
         'A fully offline-capable task management system with sync capabilities and performance optimization.',
       tech: ['Service Workers', 'IndexedDB', 'Workbox', 'Cache API'],
-      image: 'https://placehold.co/800x450?text=PWA+Demo',
+      image: 'TaskManagementPWA.webp',
       category: 'Progressive Web App',
       categoryColor: 'bg-purple-900/30 text-purple-400',
       lighthouse: {
@@ -32,15 +32,15 @@ export function FeaturedProjects() {
         bestPractices: 100,
         pwa: 100,
       },
-      demoUrl: '#',
-      codeUrl: '#',
+      demoUrl: '/coming-soon',
+      codeUrl: '/coming-soon',
     },
     {
-      title: 'Soundwave Music Platform',
+      title: 'SoundWave Music Platform',
       description:
         'A responsive music streaming application with advanced audio handling and playlist management.',
       tech: ['Web Audio API', 'Tailwind CSS', 'Material UI', 'Redux'],
-      image: 'https://placehold.co/800x450?text=Music+App+Demo',
+      image: 'SoundWaveMusicPlatform.webp',
       category: 'Music Streaming',
       categoryColor: 'bg-green-900/30 text-green-400',
       features: [
@@ -48,8 +48,8 @@ export function FeaturedProjects() {
         'Custom audio controls and effects',
         'Playlist management with drag-and-drop',
       ],
-      demoUrl: '#',
-      codeUrl: '#',
+      demoUrl: '/coming-soon',
+      codeUrl: '/coming-soon',
     },
   ];
 

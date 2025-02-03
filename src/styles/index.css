@@ -8,13 +8,13 @@
 
 @layer base {
   html {
-    font-feature-settings: "ss01", "ss02", "cv01", "cv02";
+    font-feature-settings: 'ss01', 'ss02', 'cv01', 'cv02';
     text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     scroll-behavior: smooth;
   }
-  
+
   body {
     @apply bg-dark-950 text-dark-100;
   }
@@ -26,15 +26,15 @@
   }
 
   .glass-card {
-    @apply bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl;
+    @apply rounded-2xl border border-white/10 bg-white/5 backdrop-blur-lg;
   }
 
   .glass-effect {
-    @apply backdrop-blur-lg bg-gradient-to-b from-white/10 to-white/5;
+    @apply bg-gradient-to-b from-white/10 to-white/5 backdrop-blur-lg;
   }
 
   .text-gradient {
-    @apply bg-gradient-to-r from-primary-400 to-secondary-400 text-transparent bg-clip-text;
+    @apply bg-gradient-to-r from-primary-400 to-secondary-400 bg-clip-text text-transparent;
   }
 
   .hover-card {
@@ -47,9 +47,15 @@
 }
 
 @keyframes float {
-  0% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
-  100% { transform: translateY(0px); }
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
 }
 
 /* Tech card styles */
@@ -96,7 +102,7 @@ body {
 
 /* Category pill styling */
 .category-pill {
-  @apply inline-block px-4 py-2 rounded-full text-sm font-medium;
+  @apply inline-block rounded-full px-4 py-2 text-sm font-medium;
   backdrop-filter: blur(4px);
 }
 
@@ -106,16 +112,16 @@ body {
 }
 
 .feature-item:hover {
-  @apply transform translate-x-1;
+  @apply translate-x-1 transform;
 }
 
 /* Project buttons */
 .project-btn {
-  @apply inline-flex items-center gap-2 px-6 py-3 rounded-lg font-medium transition-all duration-300;
+  @apply inline-flex items-center gap-2 rounded-lg px-6 py-3 font-medium transition-all duration-300;
 }
 
 .demo-btn {
-  @apply bg-blue-600 hover:bg-blue-700 text-white shadow-lg shadow-blue-600/20;
+  @apply bg-blue-600 text-white shadow-lg shadow-blue-600/20 hover:bg-blue-700;
 }
 
 .code-btn {
@@ -129,14 +135,18 @@ body {
 
 .project-image-container::before {
   content: '';
-  @apply absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10 rounded-xl -z-10 blur-xl;
+  @apply absolute inset-0 -z-10 rounded-xl bg-gradient-to-r from-blue-600/10 to-purple-600/10 blur-xl;
   transform: translate(-10px, -10px);
 }
 
 /* Lighthouse score card */
 .lighthouse-card {
   @apply relative overflow-hidden;
-  background: linear-gradient(to right bottom, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.05),
+    rgba(255, 255, 255, 0.02)
+  );
 }
 
 .lighthouse-score {
@@ -149,7 +159,7 @@ body {
   .project-card.lg\:ltr {
     direction: ltr;
   }
-  
+
   .project-image-container {
     @apply order-first;
   }
@@ -173,5 +183,5 @@ body {
 }
 
 .tech-badge:hover {
-  @apply transform -translate-y-1 shadow-lg;
+  @apply -translate-y-1 transform shadow-lg;
 }

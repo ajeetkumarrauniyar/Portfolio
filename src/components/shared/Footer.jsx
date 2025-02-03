@@ -6,12 +6,15 @@ export const Footer = () => {
   const quickLinks = [
     { to: '/', label: 'Home' },
     { to: '#services', label: 'Services' },
-    { to: '#blog', label: 'Blog' },
+    { to: 'https://asha-ekumeed.com', label: 'Blog', external: true },
     { to: '#contact', label: 'Contact' },
   ];
 
   const resources = [
-    { href: 'https://github.com/yourusername', label: 'GitHub Repository' },
+    {
+      href: 'https://github.com/ajeetkumarrauniyar',
+      label: 'GitHub Repository',
+    },
     { href: 'https://docs.example.com', label: 'Documentation' },
     { href: '#api', label: 'API References' },
     { href: '#support', label: 'Support' },
@@ -28,7 +31,7 @@ export const Footer = () => {
                 Portfolio
               </h3>
             </Link>
-            <p className="text-gray-400/90 leading-relaxed">
+            <p className="leading-relaxed text-gray-400/90">
               Exploring the boundaries of web development with modern
               technologies and creative solutions.
             </p>
@@ -43,14 +46,27 @@ export const Footer = () => {
             <ul className="space-y-3">
               {quickLinks.map((link, index) => (
                 <li key={index}>
-                  <Link
-                    to={link.to}
-                    className="group flex items-center text-gray-400/90 transition-colors duration-300 hover:text-blue-400"
-                  >
-                    <span className="transition-transform duration-300 group-hover:translate-x-1">
-                      {link.label}
-                    </span>
-                  </Link>
+                  {link.external ? (
+                    <a
+                      href={link.to}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex items-center text-gray-400/90 transition-colors duration-300 hover:text-blue-400"
+                    >
+                      <span className="transition-transform duration-300 group-hover:translate-x-1">
+                        {link.label}
+                      </span>
+                    </a>
+                  ) : (
+                    <Link
+                      to={link.to}
+                      className="group flex items-center text-gray-400/90 transition-colors duration-300 hover:text-blue-400"
+                    >
+                      <span className="transition-transform duration-300 group-hover:translate-x-1">
+                        {link.label}
+                      </span>
+                    </Link>
+                  )}
                 </li>
               ))}
             </ul>
